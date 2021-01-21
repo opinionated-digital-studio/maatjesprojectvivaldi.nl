@@ -1,0 +1,12 @@
+@import url("https://use.typekit.net/qmg1ccs.css");
+
+$font-sans: neuzeit-grotesk, Helvetica, Arial, sans-serif;
+$base-font-size: 20px;
+$paragraph-indent: false;
+$paragraph-justify: false;
+
+@import "../../node_modules/typesettings/typesettings";
+
+body {
+  font-family: $font-sans;
+}
