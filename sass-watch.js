@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const sass = require('node-sass');
+const watch = require('node-watch')
 
 /**
  * Render and save the Sass to CSS.
@@ -35,7 +36,7 @@ module.exports = (sassPath, cssFilePath) => {
   // Build CSS on startup.
   buildCss(sassPath, cssFilePath);
   // Watch for changes to Sass directory.
-  fs.watch(path.dirname(sassPath), (evType, filename) => {
+  watch('./src/_sass/', {recursive: true}, (evType, filename) => {
     console.log(`SCSS file changed: ${path.dirname(sassPath)}/${filename}`);
     // Rebuild the CSS.
     buildCss(sassPath, cssFilePath);
