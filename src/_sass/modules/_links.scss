@@ -1,0 +1,29 @@
+.link--go-to {
+  text-decoration: none;
+  position: relative;
+  padding: emRhythm(2) emRhythm(4);
+  padding-left: emRhythm(8);
+
+  &:after {
+    position: absolute;
+    font-family: "Font Awesome 5 Free"; 
+    content: '\f061';
+    font-weight: 900;
+    color: $white;
+    left: 9px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    background-color: $primary;
+    width: 35px;
+    height: 35px;
+    left: 0;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}

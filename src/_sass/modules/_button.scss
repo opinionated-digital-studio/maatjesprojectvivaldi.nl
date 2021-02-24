@@ -7,4 +7,12 @@
   padding: emRhythm(2) emRhythm(4);
   border-radius: 25px;
   margin-bottom: emRhythm($base-line-multi);
+  position: relative;
+}
+
+.button i {
+  position: absolute;
+  left: emRhythm(4);
+  top: 50%;
+  transform: translateY(-50%);
 }

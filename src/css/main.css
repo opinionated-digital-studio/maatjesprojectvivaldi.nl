@@ -305,6 +305,9 @@ template {
 [hidden] {
   display: none; }
 
+.light-gray-bg {
+  background-color: #EFEFEF; }
+
 html {
   font-size: 125%;
   -webkit-text-size-adjust: 100%;
@@ -466,8 +469,8 @@ body {
 p {
   font-weight: 300; }
 
-.light-gray-bg {
-  background-color: #EFEFEF; }
+a {
+  color: #0A0A0A; }
 
 .ow-container, .jumbotron__lead-container {
   padding: 0 5%;
@@ -5085,7 +5088,14 @@ readers do not read off random characters that represent icons */
   color: #F2F2F2;
   padding: 0.6em 1.2em;
   border-radius: 25px;
-  margin-bottom: 1.2em; }
+  margin-bottom: 1.2em;
+  position: relative; }
+
+.button i {
+  position: absolute;
+  left: 1.2em;
+  top: 50%;
+  transform: translateY(-50%); }
 
 .oza-header--viva {
   padding: 0.6em 0;
@@ -5147,6 +5157,78 @@ readers do not read off random characters that represent icons */
     top: calc(50% - 1.5px); }
   .oza-menu__toggle-bar--bottom {
     bottom: calc(33.333333% - 1.5px); }
+
+.link--go-to {
+  text-decoration: none;
+  position: relative;
+  padding: 0.6em 1.2em;
+  padding-left: 2.4em; }
+  .link--go-to:after {
+    position: absolute;
+    font-family: "Font Awesome 5 Free";
+    content: '\f061';
+    font-weight: 900;
+    color: #F2F2F2;
+    left: 9px;
+    top: 50%;
+    transform: translateY(-50%); }
+  .link--go-to:before {
+    content: '';
+    position: absolute;
+    background-color: #EA5B5B;
+    width: 35px;
+    height: 35px;
+    left: 0;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%); }
+
+.ow-news-list__title {
+  margin-bottom: 0.6em; }
+
+.ow-news-list__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 1.8em; }
+
+.ow-news-list-link {
+  text-decoration: none; }
+
+.ow-news-list-item {
+  padding: 0.9em 0;
+  border-bottom: solid 1px #7F8686; }
+  .ow-news-list-item__category {
+    display: block;
+    color: #EA5B5B;
+    font-weight: bold; }
+  .ow-news-list-item__date {
+    display: block; }
+  .ow-news-list-item__title {
+    color: #EA5B5B;
+    text-decoration: underline; }
+
+.ow-footer {
+  background-color: #0A0A0A;
+  color: #F2F2F2; }
+  .ow-footer__lead {
+    font-weight: 600;
+    margin-bottom: 0; }
+  .ow-footer__menu {
+    list-style: none;
+    margin: 0;
+    padding: 0; }
+    .ow-footer__menu-link {
+      color: #F2F2F2;
+      text-decoration: none; }
+  .ow-footer__end-item {
+    display: block; }
+  .ow-footer__end-link {
+    color: #F2F2F2;
+    text-decoration: none; }
+  .ow-footer__end-strip {
+    margin-top: 1.2em;
+    background-color: #141414; }
 
 .ow-cta {
   padding: 0.6em 0;

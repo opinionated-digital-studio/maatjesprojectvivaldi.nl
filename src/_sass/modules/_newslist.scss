@@ -1,0 +1,36 @@
+.ow-news-list {
+  &__title {
+    margin-bottom: emRhythm(2);
+  }
+
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-bottom: emRhythm(6);
+  }
+
+  &-link {
+    text-decoration: none;
+  }
+
+  &-item {
+    padding: emRhythm(3) 0;
+    border-bottom: solid 1px $dark-gray;
+
+    &__category {
+      display: block;
+      color: $primary;
+      font-weight: bold;
+    }
+
+    &__date {
+      display: block;
+    }
+
+    &__title {
+      color: $primary;
+      text-decoration: underline;
+    }
+  }
+}
