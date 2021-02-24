@@ -1,13 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{title}} | Maatjesproject Vivaldi Den Haag</title>
-  <link rel="stylesheet" href="/dist/css/main.css">
+  <link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
   {{>header}}
+  <div class="jumbotron" style="background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
+    url('/assets/images/jumbotron_01.jpg');
+    ">
+      <div class="jumbotron__lead-container">
+        <p class="jumbotron__lead">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+        </p>
+    </div>
+  </div>
+
+  <div class="ow-container">
+    <div class="ow-row">
+      <div class="ow col">
+
+      </div>
+      <div class="ow-col">
+        <p>
+           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi illo
+           inventore, neque recusandae voluptatem eveniet sit corrupti omnis, eaque
+           nostrum mollitia aut necessitatibus blanditiis sed esse reiciendis dolore
+           nesciunt ullam.  
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="ow-cta">
+    <div class="ow-container">
+      <div class="ow-row">
+        <div class="ow-col">
+          <h2 class="ow-cta__title h5">Ik voel mij eenzaam</h2>
+          <p>
+            Condimentum mattis pellentesque id nibh tortor id aliquet. Netus et
+            malesuada fames ac turpis egestas.
+          </p>
+          <a href="" class="button">Aanmelden voor hulp</a>
+        </div> 
+
+        <div class="ow-col">
+          <h2 class="ow-cta__title h5">Ik wil iemand helpen</h2>
+          <p>
+            Condimentum mattis pellentesque id nibh tortor id aliquet. Netus et
+            malesuada fames ac turpis egestas.
+          </p>
+          <a href="" class="button">Aanmelden om te helpen</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ow-container">
+    <div class="ow-news-list">
+      <div class="ow-row">
+        <div class="ow-col">
+          <h2>Nieuws</h2>
+          <a href="">Alle nieuwsberichten</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
   {{{content}}}
+  
 </body>
 </html>

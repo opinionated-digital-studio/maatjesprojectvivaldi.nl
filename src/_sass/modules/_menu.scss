@@ -1,0 +1,58 @@
+.oza-topbar {
+  margin: 0;
+  padding: 0;
+  display: flex;
+
+  &__right {
+    margin-left: auto;
+  }
+
+  &__logo-container{
+    width: 6rem
+  }
+
+  &__logo {
+    width: 100%;
+  }
+}
+
+.oza-menu {
+  &__toggle {
+    height: 60px;
+    width: 90px;
+    background: transparent;
+    position: relative;
+    border: none;
+  }
+
+  &__toggle-text {
+    color: $white;
+    display: inline-block;
+    padding-right: 2rem;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+  }
+
+  &__toggle-bar {
+    right: 0;
+    position: absolute;
+    background-color: $white;
+    height: 3px;
+    width: 1.5rem;
+
+    &--top {
+      top: calc(33.333333% - 1.5px);
+    }
+
+    &--middle {
+      top: calc(50% - 1.5px);
+    }
+
+    &--bottom {
+      bottom: calc(33.333333% - 1.5px);
+    }
+  }
+
+}

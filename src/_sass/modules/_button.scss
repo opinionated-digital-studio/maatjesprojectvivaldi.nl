@@ -1,0 +1,10 @@
+.button {
+  display: block;
+  text-align: center;
+  background-color: $primary;
+  text-decoration: none;
+  color: $white;
+  padding: emRhythm(2) emRhythm(4);
+  border-radius: 25px;
+  margin-bottom: emRhythm($base-line-multi);
+}
