@@ -7,17 +7,7 @@
 </head>
 <body>
   {{>header}}
-  <div class="jumbotron" style="background-image: 
-    linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
-    url('/assets/images/jumbotron_01.jpg');
-    ">
-      <div class="jumbotron__lead-container">
-        <p class="jumbotron__lead">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-        </p>
-    </div>
-  </div>
-
+  {{>jumbotron}}
   <div class="ow-container">
     <div class="ow-row">
       <div class="ow col">
@@ -43,7 +33,9 @@
             Condimentum mattis pellentesque id nibh tortor id aliquet. Netus et
             malesuada fames ac turpis egestas.
           </p>
-          <a href="" class="button">Aanmelden voor hulp</a>
+          <a href="" class="button"><i class="fas fa-arrow-right"></i>
+            Ik wil hulp
+          </a>
         </div> 
 
         <div class="ow-col">
@@ -52,7 +44,8 @@
             Condimentum mattis pellentesque id nibh tortor id aliquet. Netus et
             malesuada fames ac turpis egestas.
           </p>
-          <a href="" class="button">Aanmelden om te helpen</a>
+          <a href="" class="button"><i class="fas fa-arrow-right"></i>
+            Ik wil helpen</a>
         </div>
       </div>
     </div>
@@ -62,9 +55,37 @@
     <div class="ow-news-list">
       <div class="ow-row">
         <div class="ow-col">
-          <h2>Nieuws</h2>
-          <a href="">Alle nieuwsberichten</a>
+          <h2 class="ow-news-list__title">Nieuws</h2>
+          <a class="link--go-to" href="">Alle nieuwsberichten</a>
         </div>
+        <ul class="ow-news-list__list">
+          <li class="ow-news-list-item">
+            <a class="ow-news-list-link" href="">
+              <span class="ow-news-list-item__category">
+                Pers
+              </span>
+              <span class="ow-news-list-item__date">
+                21 januari 2021
+              </span>
+              <h3 class="ow-news-list-item__title">
+                Title example of news
+              </h3>
+            </a>
+          </li>
+          <li class="ow-news-list-item">
+            <a class="ow-news-list-link" href="">
+              <span class="ow-news-list-item__category">
+                Pers
+              </span>
+              <span class="ow-news-list-item__date">
+                21 januari 2021
+              </span>
+              <h3 class="ow-news-list-item__title">
+                Title example of news
+              </h3>
+            </a>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
