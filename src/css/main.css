@@ -5197,11 +5197,10 @@ readers do not read off random characters that represent icons */
     .oza-menu__toggle-bar--bottom {
       bottom: calc(33.333333% - 1.5px); }
     .oza-menu__toggle-bar--top, .oza-menu__toggle-bar--bottom {
-      transition: all 0.6s cubic-bezier(0.65, 0.05, 0.35, 1);
-      transition-delay: 0.2s; }
+      transition: all 0.6s cubic-bezier(0.65, 0.05, 0.35, 1) 0s; }
 
 .oza-menu__toggle--is-open .oza-menu__toggle-bar--top, .oza-menu__toggle--is-open .oza-menu__toggle-bar--bottom {
-  transition-delay: 0; }
+  transition-delay: 0.2s; }
 
 .oza-menu__toggle--is-open .oza-menu__toggle-bar--top {
   transform-origin: 0 0;
