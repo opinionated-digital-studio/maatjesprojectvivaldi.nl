@@ -480,6 +480,10 @@ a {
   padding-top: 1.2em;
   padding-bottom: 1.2em; }
 
+.stop-scroll {
+  height: 100%;
+  overflow: hidden; }
+
 /*!
  * Font Awesome Free 5.15.2 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
@@ -5104,8 +5108,7 @@ readers do not read off random characters that represent icons */
 .jumbotron {
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
-  margin-bottom: 1.2em; }
+  background-repeat: no-repeat; }
   .jumbotron__lead-container {
     padding-top: 1.2em;
     padding-bottom: 1.2em;
@@ -5125,38 +5128,95 @@ readers do not read off random characters that represent icons */
   .oza-topbar__right {
     margin-left: auto; }
   .oza-topbar__logo-container {
+    z-index: 1000;
     width: 6rem; }
   .oza-topbar__logo {
     width: 100%; }
 
-.oza-menu__toggle {
-  height: 60px;
-  width: 90px;
-  background: transparent;
-  position: relative;
-  border: none; }
-
-.oza-menu__toggle-text {
-  color: #F2F2F2;
-  display: inline-block;
-  padding-right: 2rem;
-  position: absolute;
-  top: 50%;
+.oza-menu {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background-color: #0A0A0A;
   left: 0;
-  transform: translateY(-50%); }
+  top: 0;
+  z-index: 100;
+  transform: translateX(100%);
+  transition: transform 0.6s cubic-bezier(0.65, 0.05, 0.35, 1); }
+  .oza-menu-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    padding-top: 4.5em; }
+  .oza-menu-item {
+    padding: 0.3em 0; }
+  .oza-menu-link {
+    display: block;
+    color: #F2F2F2;
+    text-decoration: none;
+    font-size: 2.82715em;
+    line-height: 0.63668; }
+    .oza-menu-link--small {
+      font-size: 1em;
+      line-height: 1.2; }
+  .oza-menu__small-items {
+    margin-top: 0.6em; }
+  .oza-menu--is-open {
+    transform: translateX(0); }
+  .oza-menu__toggle {
+    height: 60px;
+    width: 90px;
+    background: transparent;
+    position: relative;
+    border: none;
+    z-index: 10000; }
+  .oza-menu__toggle-text {
+    text-align: right;
+    width: 3rem;
+    color: #F2F2F2;
+    display: inline-block;
+    padding-right: 2rem;
+    position: absolute;
+    top: 50%;
+    left: -0.5rem;
+    transform: translateY(-50%);
+    transition: all 0.1s; }
+    .oza-menu__toggle-text--open {
+      display: none; }
+  .oza-menu__toggle-bar {
+    right: 0;
+    position: absolute;
+    background-color: #F2F2F2;
+    height: 3px;
+    width: 1.5rem; }
+    .oza-menu__toggle-bar--top {
+      top: calc(33.333333% - 1.5px); }
+    .oza-menu__toggle-bar--middle {
+      transition: width 0.6s cubic-bezier(0.65, 0.05, 0.35, 1) 0.3s;
+      top: calc(50% - 1.5px); }
+    .oza-menu__toggle-bar--bottom {
+      bottom: calc(33.333333% - 1.5px); }
+    .oza-menu__toggle-bar--top, .oza-menu__toggle-bar--bottom {
+      transition: all 0.6s cubic-bezier(0.65, 0.05, 0.35, 1);
+      transition-delay: 0.2s; }
 
-.oza-menu__toggle-bar {
-  right: 0;
-  position: absolute;
-  background-color: #F2F2F2;
-  height: 3px;
-  width: 1.5rem; }
-  .oza-menu__toggle-bar--top {
-    top: calc(33.333333% - 1.5px); }
-  .oza-menu__toggle-bar--middle {
-    top: calc(50% - 1.5px); }
-  .oza-menu__toggle-bar--bottom {
-    bottom: calc(33.333333% - 1.5px); }
+.oza-menu__toggle--is-open .oza-menu__toggle-bar--top, .oza-menu__toggle--is-open .oza-menu__toggle-bar--bottom {
+  transition-delay: 0; }
+
+.oza-menu__toggle--is-open .oza-menu__toggle-bar--top {
+  transform-origin: 0 0;
+  transform: rotate(45deg) translateY(-0.2rem) translateX(0.1rem); }
+
+.oza-menu__toggle--is-open .oza-menu__toggle-bar--middle {
+  transition: width 0.6s cubic-bezier(0.65, 0.05, 0.35, 1) 0s;
+  width: 0; }
+
+.oza-menu__toggle--is-open .oza-menu__toggle-bar--bottom {
+  transform-origin: 0 0;
+  transform: rotate(-45deg) translateY(0.1rem) translateX(0.1rem); }
+
+.link--white {
+  color: #F2F2F2; }
 
 .link--go-to {
   text-decoration: none;
@@ -5182,6 +5242,8 @@ readers do not read off random characters that represent icons */
     border-radius: 50%;
     top: 50%;
     transform: translateY(-50%); }
+  .link--go-to-down:after {
+    content: '\f063'; }
 
 .ow-news-list__title {
   margin-bottom: 0.6em; }

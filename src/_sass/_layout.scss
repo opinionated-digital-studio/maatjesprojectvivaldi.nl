@@ -33,3 +33,8 @@ $breakpoints: (
   padding-top: emRhythm(4);
   padding-bottom: emRhythm(4);
 }
+
+.stop-scroll {
+  height: 100%;
+  overflow: hidden;
+}
