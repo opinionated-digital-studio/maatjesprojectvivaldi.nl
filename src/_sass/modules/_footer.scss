@@ -21,6 +21,10 @@
   &__end {
     &-item {
       display: block;
+
+      @include respond-to('medium') {
+        margin-right: 1rem;
+      }
     }
 
     &-link {

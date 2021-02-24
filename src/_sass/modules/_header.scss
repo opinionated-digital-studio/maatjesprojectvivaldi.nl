@@ -1,6 +1,11 @@
 .oza-header {
-  &--viva {
-    padding: emRhythm(2) 0;
-    background-color: $black;
+  padding: emRhythm(2) 0;
+  background-color: $black;
+
+  @include respond-to('small') {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    background: none;
   }
 }

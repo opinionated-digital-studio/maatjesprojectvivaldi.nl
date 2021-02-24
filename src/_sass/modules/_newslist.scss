@@ -12,6 +12,11 @@
 
   &-link {
     text-decoration: none;
+
+    @include respond-to('medium') {
+      display: flex;
+      padding: emRhythm(4) 0;
+    }
   }
 
   &-item {
@@ -27,10 +32,11 @@
     &__date {
       display: block;
     }
+  }
 
-    &__title {
-      color: $primary;
-      text-decoration: underline;
+  &__metadata {
+    @include respond-to('medium') {
+      margin-right: 5rem;
     }
   }
 }

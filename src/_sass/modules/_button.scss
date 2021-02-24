@@ -8,6 +8,11 @@
   border-radius: 25px;
   margin-bottom: emRhythm($base-line-multi);
   position: relative;
+
+  @include respond-to('medium') {
+    display: inline-block;
+    padding-left: 2.5rem;
+  }
 }
 
 .button i {

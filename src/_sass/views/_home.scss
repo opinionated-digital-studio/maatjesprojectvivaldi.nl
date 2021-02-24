@@ -5,4 +5,39 @@
   &__title {
     margin-bottom: emRhythm(2);
   }
+
+  &__text {
+    @include respond-to('medium') {
+      &--left {
+        padding-left: 30%;
+      }
+
+      &--right {
+        padding-right: 30%;
+      }
+    }
+  }
+
+  &__title,
+  &__text {
+    @include respond-to('medium') {
+      &--left {
+        text-align: right;
+      }
+
+      &--right {
+        text-align: left;
+      }
+    }
+  }
+
+  &__button-container {
+    @include respond-to('medium') {
+      display: flex;
+
+      .oza-cta__button--left {
+        margin-left: auto;
+      }
+    }
+  }
 }

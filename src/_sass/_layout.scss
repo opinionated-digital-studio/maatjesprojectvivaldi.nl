@@ -35,9 +35,36 @@ $breakpoints: (
   }
 }
 
+.oza-row {
+  @include respond-to('medium') {
+    display: flex;
+    padding: emRhythm(4) 0;
+  }
+}
+
 .oza-col {
   padding-top: emRhythm(4);
   padding-bottom: emRhythm(4);
+
+  @include respond-to('medium') {
+    flex: 1;
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+    &:first-child {
+      padding-left: 0;
+    }
+
+    &:last-child {
+      padding-right: 0;
+    }
+  }
+
+  &--two-thirds {
+    @include respond-to('medium') {
+      flex-basis: 33.3333333333%;
+    }
+  }
 }
 
 .stop-scroll {

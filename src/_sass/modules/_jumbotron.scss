@@ -18,5 +18,25 @@
     color: $white;
     margin: auto 0;
     font-weight: bold;
+
+    @include respond-to('small') {
+      @include setType(7, $ms-up2);
+    }
+
+    @include respond-to('medium') {
+      @include setType(10, $ms-up3);
+      margin-bottom: emRhythm(1);
+      max-width: 70%;
+    }
+  }
+
+  @include respond-to('small') {
+    padding-top: emRhythm(20);
+    padding-bottom: emRhythm(10);
+    margin-bottom: emRhythm(4);
+  }
+
+  @include respond-to('medium') {
+    
   }
 }
