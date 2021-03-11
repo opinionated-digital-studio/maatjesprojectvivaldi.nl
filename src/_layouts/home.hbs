@@ -6,23 +6,26 @@
   <link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
+  <div id="dark-overlay" class="oza-dark-overlay"></div>
   {{>header}}
   {{>jumbotron}}
-  <div class="oza-container">
-    <div class="oza-row">
-      <div class="oza-col">
-          hey
-      </div>
-      <div class="oza-col oza-col--two-thirds">
-        <p>
-           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi illo
-           inventore, neque recusandae voluptatem eveniet sit corrupti omnis, eaque
-           nostrum mollitia aut necessitatibus blanditiis sed esse reiciendis dolore
-           nesciunt ullam.  
-        </p>
+  <section id="blurb">
+    <div class="oza-container">
+      <div class="oza-row">
+        <div class="oza-col">
+            hey
+        </div>
+        <div class="oza-col oza-col--two-thirds">
+          <p class="oza-blurb">
+             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi illo
+             inventore, neque recusandae voluptatem eveniet sit corrupti omnis, eaque
+             nostrum mollitia aut necessitatibus blanditiis sed esse reiciendis dolore
+             nesciunt ullam.  
+          </p>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
 
   <div class="oza-cta">
     <div class="oza-container">
@@ -56,46 +59,20 @@
   </div>
 
   <div class="oza-container">
-    <div class="oza-news-list">
       <div class="oza-row">
         <div class="oza-col">
-          <h2 class="oza-news-list__title">Nieuws</h2>
-          <a class="link--go-to" href="">Alle nieuwsberichten</a>
-          <ul class="oza-news-list__list">
-            <li class="oza-news-list-item">
-              <a class="oza-news-list-link" href="">
-                <div class="oza-news-list__metadata">
-                  <span class="oza-news-list-item__category">
-                    Pers
-                  </span>
-                  <span class="oza-news-list-item__date">
-                    21 januari 2021
-                  </span>
-                </div>
-                <h3 class="oza-news-list-item__title">
-                  Title example of news
-                </h3>
-              </a>
-            </li>
-            <li class="oza-news-list-item">
-              <a class="oza-news-list-link" href="">
-                <div class="oza-news-list__metadata">
-                  <span class="oza-news-list-item__category">
-                    Pers
-                  </span>
-                  <span class="oza-news-list-item__date">
-                    21 januari 2021
-                  </span>
-                </div>
-                <h3 class="oza-news-list-item__title">
-                  Title example of news
-                </h3>
-              </a>
-            </li>
-          </ul>
+          <div class="oza-row">
+            <div class="oza-col">
+              <h2 class="oza-news-list__title">Nieuws</h2>
+              <a class="link--go-to" href="">Alle nieuwsberichten</a>
+            </div>
+          </div>
+          <p class="mb-0-until-desktop">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni harum eaque sint.</p>
+        </div>
+        <div class="oza-col oza-col--two-thirds">
+          {{>newslist}}
         </div>
       </div>
-    </div>
   </div>
 
   {{{content}}}

@@ -7,6 +7,7 @@
   position: relative;
   padding: emRhythm(2) emRhythm(4);
   padding-left: emRhythm(8);
+  margin-bottom: emRhythm(4);
 
   &:after {
     position: absolute;
@@ -31,9 +32,20 @@
     transform: translateY(-50%);
   }
 
+  &:hover {
+    &:before {
+      background-color: $primary-hover;
+    }
+  }
+
   &-down {
     &:after {
       content: '\f063';
     }
   }
 }
+
+:focus {
+  outline: 3px solid $focus;
+}
+

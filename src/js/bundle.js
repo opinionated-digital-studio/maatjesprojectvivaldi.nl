@@ -4864,68 +4864,129 @@
 })));
 
 },{}],2:[function(require,module,exports){
+const Menu = require('./nav');
+
+const menu = new Menu(document.querySelector('header'), document);
+menu.init();
+
+},{"./nav":3}],3:[function(require,module,exports){
 const {
   gsap
 } = require('../../node_modules/gsap');
 
-const hamburgerMenu = document.getElementById('menu-toggle');
-const mainMenu = document.getElementById('main-menu');
-const body = document.getElementsByTagName('body')[0];
-const hamburgerMenuTexts = document.getElementsByClassName('oza-menu__toggle-text');
-const menuLinks = document.getElementsByClassName('oza-menu-link');
-hamburgerMenu.addEventListener('click', function (e) {
-  mainMenu.classList.toggle('oza-menu--is-open');
-  hamburgerMenu.classList.toggle('oza-menu__toggle--is-open');
-  body.classList.toggle('stop-scroll');
-
-  for (const item of hamburgerMenuTexts) {
-    item.classList.toggle('oza-menu__toggle-text--is-active');
+class Menu {
+  constructor(header, document) {
+    this.body = document.querySelector('body');
+    this.overlay = document.querySelector('.oza-dark-overlay');
+    this.header = header;
+    this.menuButton = header.querySelector('#menu-toggle');
+    this.menu = this.header.querySelector('#' + this.menuButton.getAttribute('aria-controls'));
+    this.menuItems = this.header.querySelectorAll('.oza-menu-item');
+    this.menuLinks = this.header.querySelectorAll('.oza-menu-link');
+    this.openText = this.menuButton.querySelector('#toggle-text-opened');
+    this.closeText = this.menuButton.querySelector('#toggle-text-closed');
   }
 
-  if (mainMenu.classList.contains('oza-menu--is-open')) {
-    toggleMenuText('opening');
-    gsap.from(menuLinks, {
-      x: 100,
-      duration: 0.5,
-      opacity: 0,
-      delay: 0.3,
-      stagger: 0.05,
-      ease: 'power2'
-    });
-  } else {
-    toggleMenuText('closing');
+  init() {
+    this.syncState(this.menu.classList.contains('oza-menu--is-open'));
+    this.menuButton.addEventListener('click', this.handleMenuToggle.bind(this));
+    this.menuLinks.forEach(link => link.addEventListener('mouseover', this.focusLink.bind(this)));
+    this.menuLinks.forEach(link => link.addEventListener('focus', this.focusLink.bind(this)));
+    this.menuLinks.forEach(link => link.addEventListener('mouseout', this.blurLink.bind(this)));
+    this.menuLinks.forEach(link => link.addEventListener('blur', this.blurLink.bind(this)));
   }
-});
 
-function toggleMenuText(state) {
-  const textClosed = document.getElementById('toggle-text-closed');
-  const textOpened = document.getElementById('toggle-text-opened');
-
-  if (state === 'opening') {
-    gsap.to(textClosed, {
-      display: 'none',
-      opacity: 0,
-      duration: 0.3
-    });
-    gsap.to(textOpened, {
-      display: 'block',
-      opacity: 1,
-      duration: 0.3,
-      delay: 0.3
-    });
-  } else {
-    gsap.to(textOpened, {
-      display: 'none',
-      opacity: 0,
-      duration: 0.3
-    });
-    gsap.to(textClosed, {
-      display: 'block',
-      opacity: 1,
-      duration: 0.3,
-      delay: 0.3
+  focusLink(linkHover) {
+    this.menuLinks.forEach(link => {
+      if (link !== linkHover.target) {
+        link.classList.toggle('oza-menu-link--unhovered');
+      }
     });
   }
+
+  blurLink() {
+    this.menuLinks.forEach(link => {
+      link.classList.toggle('oza-menu-link--unhovered', false);
+    });
+  }
+
+  syncState(isVisible) {
+    this.toggleMenuText(isVisible);
+    this.menuButton.setAttribute('aria-expanded', isVisible);
+    this.toggleMenuIcon(isVisible);
+    this.animateMenuItems(isVisible);
+    this.disableScroll(isVisible);
+    this.toggleOverlay(isVisible);
+  }
+
+  handleMenuToggle() {
+    const isVisible = this.menu.classList.toggle('oza-menu--is-open');
+    this.throttleMenuButton();
+    this.syncState(isVisible);
+  }
+
+  throttleMenuButton() {
+    this.menuButton.setAttribute('disabled', true);
+    setTimeout(() => {
+      this.menuButton.removeAttribute('disabled');
+    }, 600);
+  }
+
+  toggleOverlay(isVisible) {
+    this.overlay.classList.toggle('oza-dark-overlay--is-active', isVisible);
+  }
+
+  disableScroll(isVisible) {
+    this.body.classList.toggle('stop-scroll', isVisible);
+  }
+
+  toggleMenuIcon(isVisible) {
+    this.menuButton.classList.toggle('oza-menu__toggle--is-open', isVisible);
+  }
+
+  animateMenuItems(isVisible) {
+    if (isVisible) {
+      gsap.from(this.menuItems, {
+        x: 100,
+        duration: 0.5,
+        opacity: 0,
+        delay: 0.3,
+        stagger: 0.05,
+        ease: 'power2'
+      });
+    }
+  }
+
+  toggleMenuText(isVisible) {
+    if (isVisible) {
+      gsap.to(this.closeText, {
+        display: 'none',
+        opacity: 0,
+        duration: 0.3
+      });
+      gsap.to(this.openText, {
+        display: 'block',
+        opacity: 1,
+        duration: 0.3,
+        delay: 0.3
+      });
+    } else {
+      gsap.to(this.openText, {
+        display: 'none',
+        opacity: 0,
+        duration: 0.3
+      });
+      gsap.to(this.closeText, {
+        display: 'block',
+        opacity: 1,
+        duration: 0.3,
+        delay: 0.3
+      });
+    }
+  }
+
 }
+
+module.exports = Menu;
 
 },{"../../node_modules/gsap":1}]},{},[2]);

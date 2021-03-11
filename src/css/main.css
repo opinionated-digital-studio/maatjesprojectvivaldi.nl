@@ -471,6 +471,8 @@ p {
 
 a {
   color: #0A0A0A; }
+  a:hover {
+    text-decoration: underline; }
 
 .oza-container, .jumbotron__lead-container {
   padding: 0 5%;
@@ -5104,7 +5106,7 @@ readers do not read off random characters that represent icons */
 .button {
   display: block;
   text-align: center;
-  background-color: #EA5B5B;
+  background-color: #E4312C;
   text-decoration: none;
   color: #F2F2F2;
   padding: 0.6em 1.2em;
@@ -5139,13 +5141,10 @@ readers do not read off random characters that represent icons */
   .jumbotron__lead-container {
     padding-top: 1.2em;
     padding-bottom: 1.2em;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center; }
+    height: 100%; }
   .jumbotron__lead {
     color: #F2F2F2;
-    margin: auto 0;
+    margin-bottom: 0.6em;
     font-weight: bold; }
     @media (min-width: 767px) {
       .jumbotron__lead {
@@ -5155,7 +5154,6 @@ readers do not read off random characters that represent icons */
       .jumbotron__lead {
         font-size: 2.82715em;
         line-height: 1.06114;
-        margin-bottom: 0.3em;
         max-width: 70%; } }
   @media (min-width: 767px) {
     .jumbotron {
@@ -5163,15 +5161,46 @@ readers do not read off random characters that represent icons */
       padding-bottom: 3em;
       margin-bottom: 1.2em; } }
 
+.oza-dark-overlay {
+  position: absolute;
+  overflow: hidden;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: black;
+  z-index: 1;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.6s cubic-bezier(0.65, 0.05, 0.35, 1); }
+  .oza-dark-overlay--is-active {
+    transition: opacity 0.6s cubic-bezier(0.65, 0.05, 0.35, 1);
+    visibility: visible;
+    opacity: 80%; }
+
 .oza-topbar {
   margin: 0;
   padding: 0;
-  display: flex; }
-  .oza-topbar__right {
-    margin-left: auto; }
+  display: flex;
+  justify-content: space-between; }
+  .oza-topbar__cta-container {
+    display: none; }
+    @media (min-width: 1200px) {
+      .oza-topbar__cta-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center; } }
+  .oza-topbar__cta {
+    color: #F2F2F2;
+    text-decoration: none;
+    display: block;
+    padding: 0 0.6em; }
   .oza-topbar__logo-container {
     z-index: 1000;
     width: 6rem; }
+    @media (min-width: 1200px) {
+      .oza-topbar__logo-container {
+        z-index: 0; } }
   .oza-topbar__logo {
     width: 100%; }
 
@@ -5184,7 +5213,8 @@ readers do not read off random characters that represent icons */
   top: 0;
   z-index: 100;
   transform: translateX(100%);
-  transition: transform 0.6s cubic-bezier(0.65, 0.05, 0.35, 1); }
+  transition: all 0.6s cubic-bezier(0.65, 0.05, 0.35, 1);
+  visibility: hidden; }
   .oza-menu-list {
     list-style: none;
     margin: 0;
@@ -5192,19 +5222,38 @@ readers do not read off random characters that represent icons */
     padding-top: 4.5em; }
   .oza-menu-item {
     padding: 0.3em 0; }
+    .oza-menu-item--arrow {
+      padding-left: 3ex;
+      position: relative; }
+      .oza-menu-item--arrow i {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%); }
   .oza-menu-link {
-    display: block;
+    display: inline-block;
     color: #F2F2F2;
     text-decoration: none;
+    transition: opacity 0.2s;
     font-size: 2.82715em;
     line-height: 0.63668; }
+    @media (min-width: 1200px) {
+      .oza-menu-link {
+        font-size: 3.99758em;
+        line-height: 0.75045; } }
     .oza-menu-link--small {
       font-size: 1em;
       line-height: 1.2; }
+    .oza-menu-link--unhovered {
+      opacity: 50%; }
   .oza-menu__small-items {
     margin-top: 0.6em; }
   .oza-menu--is-open {
+    visibility: visible;
     transform: translateX(0); }
+    @media (min-width: 1200px) {
+      .oza-menu--is-open {
+        transform: translateX(66.66667%); } }
   .oza-menu__toggle {
     height: 60px;
     width: 90px;
@@ -5241,6 +5290,9 @@ readers do not read off random characters that represent icons */
     .oza-menu__toggle-bar--top, .oza-menu__toggle-bar--bottom {
       transition: all 0.6s cubic-bezier(0.65, 0.05, 0.35, 1) 0s; }
 
+.oza-menu__toggle:focus {
+  outline: 3px solid #1487E3; }
+
 .oza-menu__toggle--is-open .oza-menu__toggle-bar--top, .oza-menu__toggle--is-open .oza-menu__toggle-bar--bottom {
   transition-delay: 0.2s; }
 
@@ -5263,7 +5315,8 @@ readers do not read off random characters that represent icons */
   text-decoration: none;
   position: relative;
   padding: 0.6em 1.2em;
-  padding-left: 2.4em; }
+  padding-left: 2.4em;
+  margin-bottom: 1.2em; }
   .link--go-to:after {
     position: absolute;
     font-family: "Font Awesome 5 Free";
@@ -5276,15 +5329,20 @@ readers do not read off random characters that represent icons */
   .link--go-to:before {
     content: '';
     position: absolute;
-    background-color: #EA5B5B;
+    background-color: #E4312C;
     width: 35px;
     height: 35px;
     left: 0;
     border-radius: 50%;
     top: 50%;
     transform: translateY(-50%); }
+  .link--go-to:hover:before {
+    background-color: #c41e19; }
   .link--go-to-down:after {
     content: '\f063'; }
+
+:focus {
+  outline: 3px solid #1487E3; }
 
 .oza-news-list__title {
   margin-bottom: 0.6em; }
@@ -5297,6 +5355,8 @@ readers do not read off random characters that represent icons */
 
 .oza-news-list-link {
   text-decoration: none; }
+  .oza-news-list-link:hover {
+    text-decoration: none; }
   @media (min-width: 992px) {
     .oza-news-list-link {
       display: flex;
@@ -5307,10 +5367,15 @@ readers do not read off random characters that represent icons */
   border-bottom: solid 1px #7F8686; }
   .oza-news-list-item__category {
     display: block;
-    color: #EA5B5B;
+    color: #E4312C;
     font-weight: bold; }
   .oza-news-list-item__date {
     display: block; }
+  .oza-news-list-item__title {
+    margin: auto 0 0 0; }
+    @media (min-width: 992px) {
+      .oza-news-list-item__title {
+        max-width: 70%; } }
 
 @media (min-width: 992px) {
   .oza-news-list__metadata {
@@ -5341,6 +5406,11 @@ readers do not read off random characters that represent icons */
     margin-top: 1.2em;
     background-color: #141414; }
 
+@media (min-width: 1200px) {
+  .oza-blurb {
+    font-size: 1.414em;
+    line-height: 1.27298; } }
+
 .oza-cta {
   padding: 0.6em 0;
   background-color: #EFEFEF; }
@@ -5359,5 +5429,14 @@ readers do not read off random characters that represent icons */
   @media (min-width: 992px) {
     .oza-cta__button-container {
       display: flex; }
+      .oza-cta__button-container .oza-cta__button:hover {
+        text-decoration: none;
+        background-color: #c41e19; }
       .oza-cta__button-container .oza-cta__button--left {
         margin-left: auto; } }
+
+.mb-0-until-desktop {
+  margin-bottom: 0; }
+  @media (min-width: 1200px) {
+    .mb-0-until-desktop {
+      margin-bottom: inherit; } }

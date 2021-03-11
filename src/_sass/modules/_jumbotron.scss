@@ -7,16 +7,13 @@
     padding-top: emRhythm(4);
     padding-bottom: emRhythm(4);
     height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
 
     @extend .oza-container;
   }
 
   &__lead {
     color: $white;
-    margin: auto 0;
+    margin-bottom: emRhythm(2);
     font-weight: bold;
 
     @include respond-to('small') {
@@ -25,7 +22,6 @@
 
     @include respond-to('medium') {
       @include setType(10, $ms-up3);
-      margin-bottom: emRhythm(1);
       max-width: 70%;
     }
   }
@@ -34,9 +30,5 @@
     padding-top: emRhythm(20);
     padding-bottom: emRhythm(10);
     margin-bottom: emRhythm(4);
-  }
-
-  @include respond-to('medium') {
-    
   }
 }

@@ -1,0 +1,7 @@
+.mb-0-until-desktop {
+  margin-bottom: 0;
+
+  @include respond-to('large') {
+    margin-bottom: inherit;
+  }
+}

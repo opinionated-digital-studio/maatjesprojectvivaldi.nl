@@ -1,9 +1,12 @@
 $black: #0A0A0A;
-$primary: #EA5B5B;
+$primary: #E4312C;
 $white: #F2F2F2;
 $light-gray: #EFEFEF;
 $dark-gray: #7F8686;
 $light-black: #141414;
+$focus: #1487E3;
+
+$primary-hover: darken($primary, 10%);
 
 .light-gray-bg {
   background-color: $light-gray;

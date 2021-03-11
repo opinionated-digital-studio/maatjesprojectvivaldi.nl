@@ -1,3 +1,9 @@
+.oza-blurb {
+  @include respond-to('large') {
+    @include setType(6, $ms-up1);
+  }
+}
+
 .oza-cta {
   padding: emRhythm(2) 0;
   background-color: $light-gray;
@@ -34,6 +40,13 @@
   &__button-container {
     @include respond-to('medium') {
       display: flex;
+
+      .oza-cta__button {
+        &:hover {
+          text-decoration: none;
+          background-color: $primary-hover;
+        }
+      }
 
       .oza-cta__button--left {
         margin-left: auto;
